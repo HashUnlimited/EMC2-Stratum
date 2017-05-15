@@ -15,7 +15,7 @@ class CoinbaseTransaction(halfnode.CTransaction):
     extranonce_placeholder = struct.pack(extranonce_type, int('f000000ff111111f', 16))
     extranonce_size = struct.calcsize(extranonce_type)
 
-    def __init__(self, timestamper, coinbaser, value, flags, height, commitment = None, data='', ntime=None):
+    def __init__(self, timestamper, coinbaser, value, charity_value, flags, height, commitment = None, data='', ntime=None):
         super(CoinbaseTransaction, self).__init__()
         log.debug("Got to CoinBaseTX")
         #self.extranonce = 0
@@ -33,9 +33,19 @@ class CoinbaseTransaction(halfnode.CTransaction):
         )
                 
         tx_in.scriptSig = tx_in._scriptSig_template[0] + self.extranonce_placeholder + tx_in._scriptSig_template[1]
-    
+
+        # EMC2 Charity Address Requirement
+
+        charity_value += int(settings.EXTRA_DONATION)
+        if charity_value > value:
+            charity_value = value
+
+        tx_out_charity = halfnode.CTxOut()
+        tx_out_charity.nValue = charity_value
+        tx_out_charity.scriptPubKey = util.getCharityScript()
+
         tx_out = halfnode.CTxOut()
-        tx_out.nValue = value
+        tx_out.nValue = value - charity_value
         tx_out.scriptPubKey = coinbaser.get_script_pubkey()
 
         if settings.COINDAEMON_REWARD == 'POS' and ntime != None:
