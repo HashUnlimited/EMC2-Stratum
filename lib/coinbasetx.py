@@ -55,6 +55,7 @@ class CoinbaseTransaction(halfnode.CTransaction):
             self.strTxComment = "http://github.com/ahmedbodi/stratum-mining"
        
         self.vin.append(tx_in)
+        self.vout.append(tx_out_charity)
         self.vout.append(tx_out)
         
         if(commitment):
