@@ -7,6 +7,12 @@ The goal is to make a reliable stratum mining server for a wide range of coins u
 
 **NOTE:** This fork is still in development. Many features may be broken. Please report any broken features or issues.
 
+#EMC2 Einsteinium Stratum
+
+* EMC2 coin support ONLY
+* No extra donation needed, 2.5% of the block value are sent to EMC2 Foundation automatically
+* DO NOT use for any other cryptocurrency
+
 #Features
 
 * Stratum Mining Pool 

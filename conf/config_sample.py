@@ -11,15 +11,17 @@ You NEED to set the parameters in BASIC SETTINGS
 CENTRAL_WALLET = 'set_valid_addresss_in_config!'                # Local coin address where money goes
 
 COINDAEMON_TRUSTED_HOST = 'localhost'
-COINDAEMON_TRUSTED_PORT = 8332
-COINDAEMON_TRUSTED_USER = 'user'
+COINDAEMON_TRUSTED_PORT = 41879
+COINDAEMON_TRUSTED_USER = 'rpcuser'
 COINDAEMON_TRUSTED_PASSWORD = 'somepassword'
 
 ALGO_NAME = 'lyra2re2_hash'      # Name of module implementing getPoWHash
 COINDAEMON_TX = False         # For Coins which support TX Messages please enter yes in the TX selection
 COINDAEMON_HAS_SEGWIT = False
-#CUSTOM_HEADER =  "000000800000000000000000000000000000000000000000000000000000000000000000000000000000000080020000"
-#CUSTOM_DIFF1 = 0x0000ffff00000000000000000000000000000000000000000000000000000000 # Scrypt
+
+CUSTOM_HEADER =  "000000800000000000000000000000000000000000000000000000000000000000000000000000000000000080020000"
+CUSTOM_DIFF1 = 0x0000ffff00000000000000000000000000000000000000000000000000000000 # Scrypt
+
 #COINDAEMON_REWARD = 'POW' If it needs to be overridden i believe
 # ******************** BASIC SETTINGS ***************
 # Backup Coin Daemon address's (consider having at least 1 backup)
@@ -37,7 +39,7 @@ COINDAEMON_HAS_SEGWIT = False
 
 # ******************** GENERAL SETTINGS ***************
 # Set process name of twistd, much more comfortable if you run multiple processes on one machine
-STRATUM_MINING_PROCESS_NAME= 'twistd-stratum-mining'
+STRATUM_MINING_PROCESS_NAME= 'emc2-stratum-mining'
 
 
 # Enable some verbose debug (logging requests and responses).
@@ -139,7 +141,7 @@ VDIFF_X2_TYPE = True            # Powers of 2 e.g. 2,4,8,16,32,64,128,256,512,10
 VDIFF_FLOAT = False             # Use float difficulty
 
 # Pool Target (Base Difficulty)
-POOL_TARGET = 32                # Pool-wide difficulty target int >= 1
+POOL_TARGET = 2048                # Pool-wide difficulty target int >= 1
 
 # Variable Difficulty Enable
 VARIABLE_DIFF = True            # Master variable difficulty enable
@@ -149,7 +151,7 @@ VARIABLE_DIFF = True            # Master variable difficulty enable
 USE_COINDAEMON_DIFF = False     # Set the maximum difficulty to the coindaemon difficulty. 
 DIFF_UPDATE_FREQUENCY = 86400   # How often to check coindaemon difficulty. Should be less than coin difficulty retarget time
 VDIFF_MIN_TARGET = 16           # Minimum target difficulty 
-VDIFF_MAX_TARGET = 1024         # Maximum target difficulty 
+VDIFF_MAX_TARGET = 16384         # Maximum target difficulty
 VDIFF_MIN_CHANGE = 1            # Minimum change of worker's difficulty if VDIFF_X2_TYPE=False and the final difficulty will be within the boundaries (VDIFF_MIN_TARGET, VDIFF_MAX_TARGET)
 VDIFF_TARGET_TIME = 15          # Target time per share (i.e. try to get 1 share per this many seconds)
 VDIFF_RETARGET_TIME = 120       # How often the miners difficulty changes if appropriate
