@@ -9,6 +9,7 @@ You NEED to set the parameters in BASIC SETTINGS
 # These are the MUST BE SET parameters!
 
 CENTRAL_WALLET = 'set_valid_addresss_in_config!'                # Local coin address where money goes
+# ADMIN_PASSWORD_SHA256 = 'SHA256 password if using blocknotify script' #for blocknotify
 
 COINDAEMON_TRUSTED_HOST = 'localhost'
 COINDAEMON_TRUSTED_PORT = 41879
@@ -19,7 +20,7 @@ ALGO_NAME = 'lyra2re2_hash'      # Name of module implementing getPoWHash
 COINDAEMON_TX = False         # For Coins which support TX Messages please enter yes in the TX selection
 COINDAEMON_HAS_SEGWIT = False
 
-CUSTOM_HEADER =  "000000800000000000000000000000000000000000000000000000000000000000000000000000000000000080020000"
+# CUSTOM_HEADER =  "000000800000000000000000000000000000000000000000000000000000000000000000000000000000000080020000"
 CUSTOM_DIFF1 = 0x0000ffff00000000000000000000000000000000000000000000000000000000 # Scrypt
 
 #COINDAEMON_REWARD = 'POW' If it needs to be overridden i believe
@@ -50,7 +51,7 @@ LOGDIR = 'log/'
 
 # Main application log file.
 LOGFILE = None      # eg. 'stratum.log'
-LOGLEVEL = 'DEBUG'
+LOGLEVEL = 'INFO'
 # Logging Rotation can be enabled with the following settings
 # It if not enabled here, you can set up logrotate to rotate the files. 
 # For built in log rotation set LOG_ROTATION = True and configure the variables
