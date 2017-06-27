@@ -16,7 +16,7 @@ COINDAEMON_TRUSTED_PORT = 41879
 COINDAEMON_TRUSTED_USER = 'rpcuser'
 COINDAEMON_TRUSTED_PASSWORD = 'somepassword'
 
-ALGO_NAME = 'lyra2re2_hash'      # Name of module implementing getPoWHash
+ALGO_NAME = 'ltc_scrypt'      # Name of module implementing getPoWHash
 COINDAEMON_TX = False         # For Coins which support TX Messages please enter yes in the TX selection
 COINDAEMON_HAS_SEGWIT = False
 
